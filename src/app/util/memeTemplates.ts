@@ -1,13 +1,13 @@
 export const memeTemplates = [
 	{
 		promptDescription:
-			"There is a meme where there are two buttons and a man is pictured sweating as if he's having trouble deciding which button to push. The line of text above the left button is a tempting choice that leads to bad consequences. The line of text above the right button is a hard choice that leads to good rewards. Keep these lines of text less than 20 characters each.",
+			"Generate two subtly sarcastic choices for a meme and make it hard to choose between them in a darkly humorous way. Each choice should be either a short phrase or a single word. Present each choice as an item in a numbered list and absolutely do not put more than one choice on a single line.",
 		src: "https://imgflip.com/s/meme/Two-Buttons.jpg",
 		imageWidth: 600,
 		imageHeight: 908,
 		textLines: [
 			{
-				size: 20, // in px
+				size: 16, // in px
 				text: "",
 				x: 60,
 				y: 143,
@@ -17,7 +17,7 @@ export const memeTemplates = [
 				color: "black",
 			},
 			{
-				size: 20,
+				size: 16,
 				text: "",
 				x: 276,
 				y: 87,

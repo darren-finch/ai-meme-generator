@@ -15,7 +15,7 @@ export default function Home() {
 
 		const context: CanvasRenderingContext2D = canvas.getContext("2d")!
 
-		const promptSuffix = ` Generate each of the lines of text described above and make them very funny and related to ${topic}. Present each line of text as an item in a numbered list and order them in the same way as I described them. Do not give me any fluff or explanation in your answer. Only give what I asked for. Do not say which button the line is for. Above all else, be funny and make me laugh.`
+		const promptSuffix = ` Make everything related to ${topic}.`
 		const prompt = memeTemplate.promptDescription + promptSuffix
 
 		fetch("http://localhost:3000/api/chatgpt", {
@@ -28,6 +28,7 @@ export default function Home() {
 			.then((response) => response.json())
 			.then((data) => {
 				const text = data.text
+				console.log(text)
 				text.split("\n").forEach((line: string, index: number) => {
 					if (index > memeTemplate.textLines.length - 1) return
 					const textLine = memeTemplate.textLines[index]
