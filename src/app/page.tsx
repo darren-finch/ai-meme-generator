@@ -5,9 +5,15 @@ import { useState } from "react"
 
 export default function Home() {
 	const [topic, setTopic] = useState("")
+	const [memeTemplateIndex, setMemeTemplateIndex] = useState(0)
 
 	const handleGenerateBtnClick = () => {
-		const memeTemplate = memeTemplates[0]
+		if (memeTemplateIndex < 0 || memeTemplateIndex > memeTemplates.length - 1) {
+			alert("Please enter a valid meme template number")
+			return
+		}
+
+		const memeTemplate = memeTemplates[memeTemplateIndex]
 
 		const canvas = document.getElementById("canvas") as HTMLCanvasElement
 		canvas.width = memeTemplate.imageWidth
@@ -15,7 +21,7 @@ export default function Home() {
 
 		const context: CanvasRenderingContext2D = canvas.getContext("2d")!
 
-		const promptSuffix = ` Make everything related to ${topic}.`
+		const promptSuffix = topic === "" ? "" : `\nMake everything related to ${topic}.`
 		const prompt = memeTemplate.promptDescription + promptSuffix
 
 		fetch("http://localhost:3000/api/chatgpt", {
@@ -50,7 +56,10 @@ export default function Home() {
 							textLine.height,
 							textLine.angle,
 							textLine.color,
-							false
+							false,
+							textLine.shadowColor,
+							textLine.shadowBlur,
+							5 // maybe make this configurable in the future
 						)
 					})
 				}
@@ -62,6 +71,16 @@ export default function Home() {
 		<>
 			<h1>AI Meme Generator</h1>
 			<p>Enter a topic for your meme (e.g. programming, romance, sports, etc)</p>
+			<div style={{ marginBottom: "20px" }}>
+				<input
+					id="memeTemplateInput"
+					type="number"
+					placeholder="Enter the number of the meme template you want to use..."
+					value={memeTemplateIndex}
+					onChange={(e) => setMemeTemplateIndex(Number.parseInt(e.target.value))}
+					style={{ color: "black !important" }}
+				/>
+			</div>
 			<div style={{ marginBottom: "20px" }}>
 				<input
 					id="topicInput"

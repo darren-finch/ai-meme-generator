@@ -28,7 +28,8 @@
 		"**/*.tsx",
 		".next/types/**/*.ts",
 		"src/pages/api/chatgpt.js",
-		"src/app/api/chatgpt/route.js"
+		"src/app/api/chatgpt/route.js",
+		"src/app/util/memeTemplates.ts"
 	],
 	"exclude": ["node_modules"]
 }

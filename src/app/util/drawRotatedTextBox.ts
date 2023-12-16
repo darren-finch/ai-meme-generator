@@ -9,7 +9,10 @@ export function drawRotatedTextBox(
 	height: number,
 	rotateDegrees: number,
 	color: string,
-	showTextBox: boolean
+	showTextBox: boolean,
+	shadowColor?: string,
+	shadowBlur?: number,
+	lineWidth?: number
 ) {
 	ctx.save() // Save the current state
 
@@ -21,6 +24,12 @@ export function drawRotatedTextBox(
 	let radians = (rotateDegrees * Math.PI) / 180
 	ctx.translate(x, y)
 	ctx.rotate(radians)
+
+	// Set the shadow
+	if (shadowColor && shadowBlur) {
+		ctx.shadowColor = shadowColor
+		ctx.shadowBlur = shadowBlur
+	}
 
 	// Optional: Draw the text box for debugging
 	if (showTextBox) {
