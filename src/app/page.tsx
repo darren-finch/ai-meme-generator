@@ -36,9 +36,9 @@ export default function Home() {
 		const prompt = memeTemplate.promptDescription + promptSuffix
 
 		const apiUrl =
-			process.env.VERCEL_URL === undefined
+			process.env.NEXT_PUBLIC_VERCEL_URL === undefined
 				? "http://localhost:3000/api"
-				: "https://" + process.env.VERCEL_URL + "/api"
+				: "https://" + process.env.NEXT_PUBLIC_VERCEL_URL + "/api"
 		fetch(`${apiUrl}/chatgpt`, {
 			method: "POST",
 			headers: {
