@@ -35,7 +35,7 @@ export default function Home() {
 		const promptSuffix = topic === "" ? "" : `\nMake everything related to ${topic}.`
 		const prompt = memeTemplate.promptDescription + promptSuffix
 
-		fetch("http://localhost:3000/api/chatgpt", {
+		fetch(`${process.env.NEXT_PUBLIC_MEME_API_BASE_URL}/chatgpt`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
