@@ -96,8 +96,8 @@ export default function Home() {
 	}
 
 	return (
-		<div className="my-12 container bg-slate-900 p-8 rounded-lg shadow-xl shadow-slate-600 flex items-center justify-center h-[800px]">
-			<div className="w-6/12 p-4">
+		<div className="my-12 container bg-slate-900 p-8 rounded-lg shadow-xl shadow-slate-600 flex flex-col md:flex-row items-center justify-center md:h-[800px]">
+			<div className="md:w-6/12 p-4">
 				<h1 className="text-4xl font-bold">AI Meme Generator</h1>
 				<div className="my-4">
 					<p>Select a meme template</p>
@@ -145,8 +145,8 @@ export default function Home() {
 					</p>
 				</div>
 			</div>
-			<div className="border-r border-gray-400 w-1 h-full"></div>
-			<div className="w-6/12 h-full p-4 flex flex-col items-stretch justify-center">
+			<div className="border-t md:border-r border-gray-400 w-full h-1 md:h-full md:w-1"></div>
+			<div className="w-full md:w-6/12 h-full p-4 flex flex-col items-stretch justify-center">
 				<div className="relative max-w-full max-h-full overflow-hidden">
 					<div
 						className={`absolute inset-0 m-auto flex justify-center items-center ${
